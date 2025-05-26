@@ -1,0 +1,25 @@
+{
+  "name": "marketplace-db",
+  "version": "1.0.0",
+  "main": "connect.js",
+  "scripts": {
+    "start": "node connect.js",
+    "dev": "nodemon mainScripts/connect.js",
+    "seedAll": "node mainScripts/scripts/seedAll.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ngneat/falso": "^7.3.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "nodemon": "^3.1.10"
+  }
+}

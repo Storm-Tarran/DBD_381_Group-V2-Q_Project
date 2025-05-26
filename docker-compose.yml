@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  # MongoDB service
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - "27017:27017"
+
+  # Node API service
+  api:
+    container_name: api
+    build: .
+    ports:
+      - 5001:5001
+    environment:
+      PORT: 5001
+      HOST: 0.0.0.0
+      MONGO_URI: mongodb://mongodb:27017/marketplace_data
+      NODE_ENV: production
+    restart: on-failure
+    depends_on:
+      - mongodb
+    
+volumes:
+  mongodb: {}
+
+
+  
