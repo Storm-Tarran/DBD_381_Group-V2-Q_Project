@@ -2,6 +2,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const addressSchema = new mongoose.Schema({
+  street:{type: String},
+  city:{ type: String},
+  state:{ type: String},
+  zipCode:{ type: String}
+}, { _id: false });
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -19,6 +26,14 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true
+    },
+    address: {
+        type: addressSchema,
+        required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     },
 }, { timestamps: true });
 

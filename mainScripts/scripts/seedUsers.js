@@ -1,7 +1,7 @@
 //Here we will put in sample users to seed the database
 const connectDB = require('../connect');
 const Users = require('../models/users');
-const { randFullName, randEmail, randPhoneNumber, randPassword } = require('@ngneat/falso');
+const { randFullName, randEmail, randPhoneNumber, randPassword, randAddress } = require('@ngneat/falso');
 
 async function seedUsers() {
     await Users.deleteMany({}); // Clear existing users
@@ -11,11 +11,12 @@ async function seedUsers() {
         name: randFullName(),
         email: randEmail(),
         password: randPassword({ min: 1, max: 15 }),
-        phoneNumber: randPhoneNumber()
+        phoneNumber: randPhoneNumber(),
+        address: randAddress(),
+        isAdmin: false // Default to non-admin users
     }));
 
     // Insert the sample users into the database
-    
     await Users.create(sampleUsers);
 
     console.log(`✅ Seeded ${sampleUsers.length} users`);

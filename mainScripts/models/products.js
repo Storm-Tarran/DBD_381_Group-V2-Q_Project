@@ -18,6 +18,15 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    stock: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    image: {
+        type: String,
+        default: 'https://via.placeholder.com/150' // Default image URL
+    },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Products', productSchema);

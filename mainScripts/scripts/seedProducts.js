@@ -3,7 +3,7 @@ const connectDB = require('../connect');
 const Products = require('../models/products');
 
 // Sample data to seed the database
-const {randProductName, randProductDescription, randNumber, randProductCategory} = require('@ngneat/falso');
+const {randProductName, randProductDescription, randNumber, randProductCategory, randImg} = require('@ngneat/falso');
 
 //Wait for connection to the database to be established
 async function seedProducts() {
@@ -18,7 +18,9 @@ async function seedProducts() {
         name,
         description: randProductDescription(),
         price: randNumber({ min: 1, max: 100 }),
-        category: randProductCategory()
+        category: randProductCategory(),
+        stock: randNumber({ min: 0, max: 100 }),
+        image: randImg({ width: 150, height: 150 }) // Random image
     }));
 
     // Insert the sample products into the database

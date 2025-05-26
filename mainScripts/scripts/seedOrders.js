@@ -4,7 +4,7 @@ const connectDB = require('../connect');
 const Order = require('../models/orders');   
 const User = require('../models/users');
 const Product = require('../models/products');
-const { randNumber, randPastDate } = require('@ngneat/falso');
+const { randNumber, randPastDate, randAddress } = require('@ngneat/falso');
 
 async function seedOrders() {
   // 1) Clear existing orders
@@ -20,14 +20,23 @@ async function seedOrders() {
     const prodObj = products[Math.floor(Math.random() * products.length)];
     const quantity = randNumber({ min: 1, max: 10 });
     const totalPrice = prodObj.price * quantity;
+    const shippingAddress = randAddress();
+    const orderedItems = [{
+      product: prodObj._id,
+      quantity,
+      totalPrice
+    }];
+    const paymentMethod = 'Credit Card'; // Default payment method
+    const paymentStatus = 'Paid'; // Default payment status
 
     return {
       user: userObj._id,
-      product: prodObj._id,
-      quantity,
-      totalPrice,
+      orderedItems,
       status:'Pending',
-      dateOrdered: randPastDate()
+      shippingAddress,
+      dateOrdered: randPastDate(),
+      paymentMethod,
+      paymentStatus
     };
   });
 

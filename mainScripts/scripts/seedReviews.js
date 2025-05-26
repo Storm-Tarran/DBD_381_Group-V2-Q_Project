@@ -4,7 +4,7 @@ const connectDB = require('../connect');
 const Review = require('../models/reviews');
 const User = require('../models/users');
 const Product = require('../models/products');
-const { randNumber, randSentence } = require('@ngneat/falso');
+const { randNumber, randPastDate } = require('@ngneat/falso');
 
 async function seedReviews() {
     await Review.deleteMany({});
@@ -18,13 +18,23 @@ async function seedReviews() {
         const userObj = users[Math.floor(Math.random() * users.length)];
         const prodObj = products[Math.floor(Math.random() * products.length)];
         const rating = randNumber({ min: 1, max: 5 });
-        const review = randSentence();
+        let review;
+        const dateReviewed = randPastDate();
+
+        if (rating <= 2) {
+            review = "Bad experience, very disappointed.";
+        } else if (rating <= 3) {
+            review = "Average product, could be better.";
+        } else {
+            review = "Great product, highly recommended.";
+        }
 
         return {
             user: userObj._id,
             product: prodObj._id,
             rating,
             review,
+            dateReviewed
         };
     });
 
