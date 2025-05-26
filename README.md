@@ -11,7 +11,7 @@
 ## Steps
 1. Ensure you have docker installed
 
-2. Clone the repository: 
+2. Clone the repository: "https://storm-tarran.github.io/DBD_381_Group-V2-Q_Project/"
 
 3. Create a .env file for yourself, insert the following:
     PORT=5001
