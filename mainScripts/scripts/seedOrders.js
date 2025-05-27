@@ -1,6 +1,5 @@
 //Here are sample orders to seed the database with
 require('dotenv').config();
-const connectDB = require('../connect');
 const Order = require('../models/orders');   
 const User = require('../models/users');
 const Product = require('../models/products');

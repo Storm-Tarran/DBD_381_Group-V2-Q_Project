@@ -1,6 +1,5 @@
 //Here are the sample reviews to seed the database
 require('dotenv').config();
-const connectDB = require('../connect');
 const Review = require('../models/reviews');
 const User = require('../models/users');
 const Product = require('../models/products');

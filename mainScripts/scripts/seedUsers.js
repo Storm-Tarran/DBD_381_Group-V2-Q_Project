@@ -1,5 +1,4 @@
 //Here we will put in sample users to seed the database
-const connectDB = require('../connect');
 const Users = require('../models/users');
 const { randFullName, randEmail, randPhoneNumber, randPassword, randAddress } = require('@ngneat/falso');
 
