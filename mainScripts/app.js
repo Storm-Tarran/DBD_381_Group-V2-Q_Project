@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || 'localhost';
 
 //Routes
-// const userRoutes = require('./routes/userR');
+const userRoutes = require('./routes/userR');
 const productRoutes = require('./routes/productsR');
 // const orderRoutes = require('./routes/orderR');
 // const reviewRoutes = require('./routes/reviewR');
@@ -27,7 +27,7 @@ const productRoutes = require('./routes/productsR');
     });
 
     // Register routes
-    // app.use('/users', userRoutes);
+    app.use('/users', userRoutes);
     app.use('/products', productRoutes);
     // app.use('/orders', orderRoutes);
     // app.use('/reviews', reviewRoutes);
