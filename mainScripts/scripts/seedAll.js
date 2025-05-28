@@ -20,6 +20,7 @@ async function runAll() {
         await seedReviews();
 
         console.log('✅ All data seeded successfully');
+        console.log(`🕒 Seed complete at: ${new Date().toLocaleString()}`);
         process.exit(0);
     } catch (err) {
         console.error('❌ Error seeding data:', err);

@@ -48,6 +48,8 @@ d. "http://localhost:5001/reviews"
 ## 🐛 Known Issues
 - Reviews are static, simply placeholders (using Falso). No real user authentication is used yet.
 - Limited input validation, basic validation is handled in mongoose, but no additional sanitization logic is applied in the API layer.
+- Anonymous cart support is not implemented, while this was planned, it will be included in future updates of the project.
+- No admin dashboard, as this project is mainly aimed for backend testing, there is no frontend admin interface.
 
 ## 🐦 Future Improvements
 - Implement user authentication and authorization.
@@ -58,6 +60,7 @@ d. "http://localhost:5001/reviews"
 ## 🖍️ Challenges Faced
 - Designing a clean normalized NoSql scheme with linked references was tricky to get done, especially when keeping scalability and simplicity in mind.
 - Making sure Docker was set up properly and that my containers ran reliably was stressful at first, especially when I thought I would have to reconfigure it mid-project.
+- Knowing when to correctly use embedded subdocuments vs using references was difficult at first.
 
 # Project for DBD 381 – Belgium Campus IT Varsity
 
