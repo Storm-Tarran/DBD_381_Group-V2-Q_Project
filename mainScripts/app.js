@@ -11,7 +11,7 @@ const HOST = process.env.HOST || 'localhost';
 //Routes
 const userRoutes = require('./routes/userR');
 const productRoutes = require('./routes/productsR');
-// const orderRoutes = require('./routes/orderR');
+const orderRoutes = require('./routes/orderR');
 // const reviewRoutes = require('./routes/reviewR');
 // const categoryRoutes = require('./routes/categoryR');
 
@@ -29,7 +29,7 @@ const productRoutes = require('./routes/productsR');
     // Register routes
     app.use('/users', userRoutes);
     app.use('/products', productRoutes);
-    // app.use('/orders', orderRoutes);
+    app.use('/orders', orderRoutes);
     // app.use('/reviews', reviewRoutes);
     // app.use('/categories', categoryRoutes);
 
