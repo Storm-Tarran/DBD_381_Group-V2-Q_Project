@@ -15,7 +15,7 @@ async function seedProducts() {
 
     // Generate 50 sample products
     const productNames = new Set();
-    while (productNames.size < 50) {
+    while (productNames.size < 10) {
         productNames.add(randProductName());
     }
     const sampleProducts = Array.from(productNames).map(name => {

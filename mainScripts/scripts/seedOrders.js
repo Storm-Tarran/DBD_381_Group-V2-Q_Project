@@ -14,7 +14,7 @@ async function seedOrders() {
   const products = await Product.find().select('_id price');
 
   // 3) Build 50 sample orders
-  const sampleOrders = Array.from({ length: 50 }).map(() => {
+  const sampleOrders = Array.from({ length: 10 }).map(() => {
     const userObj = users[Math.floor(Math.random() * users.length)];
     const prodObj = products[Math.floor(Math.random() * products.length)];
     const quantity = randNumber({ min: 1, max: 10 });
