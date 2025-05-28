@@ -6,34 +6,38 @@ const connectDB = require('./connect');
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST;
+const HOST = process.env.HOST || 'localhost';
 
 //Routes
-const userRoutes = require('./routes/userR');
+// const userRoutes = require('./routes/userR');
 const productRoutes = require('./routes/productsR');
-const orderRoutes = require('./routes/orderR');
-const reviewRoutes = require('./routes/reviewR');
-const categoryRoutes = require('./routes/categoryR');
+// const orderRoutes = require('./routes/orderR');
+// const reviewRoutes = require('./routes/reviewR');
+// const categoryRoutes = require('./routes/categoryR');
 
 //Middleware
 (async () => {
+  try {
     await connectDB();
-    
+
     app.use(express.json());
-    
+
     app.get('/', (req, res) => {
-        res.send('🔩Welcome to the Marketplace API');
+      res.send('🔩 Welcome to the Marketplace API');
     });
 
-    //Register routes
-    app.use('/users', userRoutes);
+    // Register routes
+    // app.use('/users', userRoutes);
     app.use('/products', productRoutes);
-    app.use('/orders', orderRoutes);
-    app.use('/reviews', reviewRoutes);
-    app.use('/categories', categoryRoutes);
-    
-    
+    // app.use('/orders', orderRoutes);
+    // app.use('/reviews', reviewRoutes);
+    // app.use('/categories', categoryRoutes);
+
     app.listen(PORT, () => {
-        console.log(`Server is running on http://${HOST}:${PORT}`);
+      console.log(`🚀 Server is running on http://${HOST}:${PORT}`);
     });
-})
+  } catch (err) {
+    console.error('❌ App failed to start:', err.message);
+    process.exit(1);
+  }
+})();

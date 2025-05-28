@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "connect.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node mainScripts/app.js",
     "dev": "nodemon mainScripts/connect.js",
     "seedAll": "node mainScripts/scripts/seedAll.js"
   },

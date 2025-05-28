@@ -6,7 +6,7 @@ const MONGO_URI = process.env.MONGO_URI;
 async function connectDB() {
   try {
     await mongoose.connect(MONGO_URI, {
-      dbName: 'marketplace_data',
+      //dbName: 'marketplace_data',
       retryWrites: true,
       w: 'majority'
     });
@@ -16,5 +16,6 @@ async function connectDB() {
     process.exit(1);
   }
 }
+console.log('Connecting to:', MONGO_URI);
 
 module.exports = connectDB;
