@@ -13,7 +13,7 @@ async function seedReviews() {
     const products = await Product.find().select('_id');
 
     // 3) Build 50 sample reviews
-    const sampleReviews = Array.from({ length: 10 }).map(() => {
+    const sampleReviews = Array.from({ length: 50 }).map(() => {
         const userObj = users[Math.floor(Math.random() * users.length)];
         const prodObj = products[Math.floor(Math.random() * products.length)];
         const rating = randNumber({ min: 1, max: 5 });

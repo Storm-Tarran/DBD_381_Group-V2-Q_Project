@@ -6,7 +6,7 @@ async function seedUsers() {
     await Users.deleteMany({}); // Clear existing users
 
     // Generate 50 sample users
-    const sampleUsers = Array.from({ length: 10 }, () => ({
+    const sampleUsers = Array.from({ length: 50 }, () => ({
         name: randFullName(),
         email: randEmail(),
         password: randPassword({ min: 1, max: 15 }),

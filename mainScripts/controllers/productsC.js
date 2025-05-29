@@ -5,7 +5,7 @@ const Products = require('../models/products');
 exports.getProducts = async (req, res) => {
     try {
         const products = await Products.find();
-        res.status(200).json(products);
+        res.status(201).json(products);
     } catch (error) {
         console.error("Error fetching products:", error);
         res.status(500).json({ message: "Internal server error" });
@@ -47,7 +47,7 @@ exports.updateProduct = async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).json({ message: "Product not found" });
         }
-        res.status(200).json(updatedProduct);
+        res.status(201).json(updatedProduct);
     } catch (error) {
         console.error("Error updating product:", error);
         res.status(500).json({ message: "Internal server error" });
@@ -60,7 +60,7 @@ exports.deleteProduct = async (req, res) => {
         if (!deletedProduct) {
             return res.status(404).json({ message: "Product not found" });
         }
-        res.status(200).json({ message: "Product deleted successfully" });
+        res.status(201).json({ message: "Product deleted successfully" });
     } catch (error) {
         console.error("Error deleting product:", error);
         res.status(500).json({ message: "Internal server error" });
